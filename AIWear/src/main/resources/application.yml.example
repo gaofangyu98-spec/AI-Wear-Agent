@@ -1,0 +1,76 @@
+# ===== ???? application.yml ??????? application.yml ?????? =====
+
+server:
+  port: 8081
+
+spring:
+  application:
+    name: aiwear-service
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+  # MySQL ?????????????
+  datasource:
+    url: jdbc:mysql://YOUR_MYSQL_HOST:3306/YOUR_DB?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&characterEncoding=utf8
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # Redis
+  data:
+    redis:
+      host: YOUR_REDIS_HOST
+      port: 6379
+      database: 0
+      password: YOUR_REDIS_PASSWORD
+      timeout: 2000ms
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+          max-wait: -1ms
+
+  # ???QQ?????
+  mail:
+    host: smtp.qq.com
+    port: 587
+    username: YOUR_QQ_EMAIL@qq.com
+    password: YOUR_AUTH_CODE
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+
+jwt:
+  secret: YOUR_JWT_SECRET
+  expiration: 2
+
+aliyun:
+  oss:
+    endpoint: oss-cn-shanghai.aliyuncs.com
+    access-key-id: YOUR_ACCESS_KEY_ID
+    access-key-secret: YOUR_ACCESS_KEY_SECRET
+    bucket-name: YOUR_BUCKET_NAME
+    max-size: 52428800
+
+logging:
+  pattern:
+    console: "%clr(%d{HH:mm:ss.SSS}){faint} %clr(%5p) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){cyan} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wEx"

@@ -1,0 +1,35 @@
+# ===== Java =====
+target/
+*.jar
+*.war
+*.class
+
+# ===== Python =====
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# ===== IDE =====
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ===== ????????????? =====
+.env
+.env.local
+AIWear/src/main/resources/application.yml
+AIWear/src/main/resources/*.local.yml
+
+# ===== ?????? =====
+AIWear/uploads/
+uploads/
+
+# ===== ?? =====
+Thumbs.db
+.DS_Store
